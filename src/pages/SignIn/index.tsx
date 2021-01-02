@@ -8,7 +8,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 
-import getValidationErrors from '../../utils/getValidationErros';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 import logo from '../../assets/logo.svg';
 
@@ -40,7 +40,7 @@ const SignIn: React.FC = () => {
           email: Yup.string()
             .required('E-mail obrigatório')
             .email('Digite um e-mail válido'),
-          password: Yup.string().min(8, 'Senha obrigatória'),
+          password: Yup.string().min(6, 'Senha obrigatória'),
         });
 
         await schema.validate(data, { abortEarly: false });
@@ -72,7 +72,7 @@ const SignIn: React.FC = () => {
         });
       }
     },
-    [signIn, addToast],
+    [signIn, addToast, history],
   );
 
   return (
@@ -98,7 +98,7 @@ const SignIn: React.FC = () => {
 
             <Button type="submit">Entrar</Button>
 
-            <a href="forgot-password">Esqueci minha senha</a>
+            <Link to="/forgot-password">Esqueci minha senha</Link>
           </Form>
           <Link to="signup">
             <FiLogIn />
