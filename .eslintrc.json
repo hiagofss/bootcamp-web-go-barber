@@ -44,6 +44,7 @@
       }
     ],
     "import/prefer-default-export": "off",
+    "import/no-duplicates": "off",
     "no-use-before-define": "off",
     "prettier/prettier": "error",
     "import/extensions": [
